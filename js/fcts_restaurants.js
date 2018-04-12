@@ -189,9 +189,9 @@ function generateImageDiv(coords) {
 }
 
 function generateButtonsDiv() {
-    let $elem_boutons = $("<div class='d-flex flex-row'></div>"),
-        $btn_valider = $("<button>Valider</button>"),
-        $btn_annuler = $("<button>Annuler</button>");
+    let $elem_boutons = $("<div class='d-flex flex-row justify-content-around' id='add-restaurant-btns'></div>"),
+        $btn_valider = $("<button class='btn'>Valider</button>"),
+        $btn_annuler = $("<button class='btn'>Annuler</button>");
 
 
 

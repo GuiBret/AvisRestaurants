@@ -121,7 +121,9 @@ span.date-avis {
     font-size:0.9rem;
 }
 
-
+#add-restaurant-btns {
+    margin-top:2rem;
+}
 
 #btn_valideravis {
     margin-bottom:20px;
