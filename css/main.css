@@ -32,6 +32,10 @@ span.nom_commentateur {
 
 }
 
+.restaurant:last-child {
+    padding-bottom:1rem;
+}
+
 #panel-restaurants:before {
     content: "";
     position: absolute;
@@ -181,6 +185,9 @@ span.date-avis {
 }
 
 .btn-fermer-avis {
+    position:absolute;
+    bottom:1rem;
+    width:100%;
     display:block;
     text-decoration:none;
     background-color:red;

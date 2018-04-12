@@ -137,7 +137,7 @@ function creerListeAvis(response, args) { // Fct callback de getAvisRestaurants 
         $(document.body).removeClass("cursor-wait");
 
         //div_avis.slideToggle(1000);
-        div_avis.animate({"height":`${40+(20*response.reviews.length)}vh`}, 1000); // Formule : 40 (longueur form) + (20 (longueur avis) * nb_avis)
+        div_avis.animate({"height":`${45+(20*response.reviews.length)}vh`}, 1000); // Formule : 45 (longueur form + marge à la fin) + (20 (longueur avis) * nb_avis)
         //div_avis.toggleClass("anim-avis");
 
     }
