@@ -73,3 +73,11 @@ function getRestaurants(coords, _callback) {
         _callback(data);
     })
 }
+
+function getNewRestaurantAddress(coords, _callback) {
+    $.get({
+        url: `https://maps.googleapis.com/maps/api/geocode/json?latlng=${coords.lat()},${coords.lng()}&key=AIzaSyBZL6hoTD5XKj49lE-88DCaW4WVpenW2d0`,
+        success: _callback
+
+    });
+}

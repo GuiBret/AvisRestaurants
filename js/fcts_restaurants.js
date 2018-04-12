@@ -104,13 +104,8 @@ function genFicheNouveauRestaurant(event) { // L'image et l'adresse seront reche
         $buttons_div = generateButtonsDiv();
 
 
-    get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${coords.lat()},${coords.lng()}&key=AIzaSyBZL6hoTD5XKj49lE-88DCaW4WVpenW2d0`,function(response) {
 
-        var adresse = response.results[0].formatted_address;
-
-        $("#adresse_nv_restaurant").val(adresse);
-
-    }, [], "");
+    getNewRestaurantAddress(coords, handleNewRestaurantAddress); // In ajax.js, searches the address of the restaurant we've clicked using Geocode
 
 
     $formulaire.append($buttons_div);
@@ -118,6 +113,12 @@ function genFicheNouveauRestaurant(event) { // L'image et l'adresse seront reche
 
     $("body").append($fiche);
 
+}
+
+function handleNewRestaurantAddress(response) {
+    var adresse = response.results[0].formatted_address;
+
+    $("#adresse_nv_restaurant").val(adresse);
 }
 
 
