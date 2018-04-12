@@ -66,8 +66,8 @@ function initMap() {
 }
 
 function creationCarte(position) { // Procédure normale (avec géoloc)
-    var marqueur,
-        position_util = {lat:position.coords.latitude, lng:position.coords.longitude};
+    var position_util = {lat:position.coords.latitude, lng:position.coords.longitude};
+
     afficherListeRestaurants(position_util);
 
 
