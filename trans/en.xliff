@@ -1,0 +1,16 @@
+<xliff version="1.2">
+    <file original="" source-language="fr-FR" target-language="en-US">
+        <header></header>
+        <body>
+            <trans-unit id="AVIS">
+                <source>avis</source>
+                <target>reviews</target>
+            </trans-unit>
+            <trans-unit id="MESSAGE_GEOLOC">
+                <source>Votre localisation n'a pas pu être trouvée. Veuillez entrer une ville pour que nous puissions vous géolocaliser correctement.</source>
+                <target>Your localization couldn't be found. Please type a city so that we can geolocate you accurately.</target>
+            </trans-unit>
+
+        </body>
+    </file>
+</xliff>

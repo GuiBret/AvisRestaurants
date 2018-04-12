@@ -1,0 +1,397 @@
+.titre-restaurant, .infos_restaurant > span, #filtre > span, span.avis, span.nom_commentateur, p#afficher-restaurants-fullscreen {
+    font-family:Roboto;
+}
+
+span.avis {
+    font-size:0.85rem;
+}
+
+#right-part {
+    padding-right:0;
+
+}
+
+span.nom_commentateur {
+    font-weight:bold;
+}
+.titre-restaurant {
+    font-size:1.5rem;
+}
+
+#carte {
+    position:relative;
+    overflow:hidden;
+}
+
+#liste_restaurants {
+    position:absolute; /* Nécessaire pour la scrollbar avec FF / Edge */
+    height:100%; /* Pour afficher les éléments scrollables */
+    overflow-y: auto; /* Si on dépasse la taille de la carte, on scrolle */
+    padding-top:.8rem;
+    width:100%;
+
+}
+
+#panel-restaurants:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height:3rem;
+    z-index: 2546488648484;
+    background: linear-gradient(to bottom, rgba(255,255,255,.8), rgba(255,255,255,0));
+}
+
+#panel-restaurants:after {
+    content: "";
+    position: absolute;
+    bottom:0;
+    width: 100%;
+    height: 3rem;
+    z-index: 2546488648484;
+    background: linear-gradient(to top, rgba(255,255,255,.8), rgba(255,255,255,0));
+}
+
+
+
+#panel-restaurants { /* Partie contenant les restaurants et le filtre*/
+    height:100%;
+}
+
+
+
+#interface {
+    position:absolute;
+    width:100%;
+    overflow:hidden;
+    height:80%;
+}
+
+span.note, span.note span{
+    display: inline-block;
+    background: url(../img/etoile.png) 0 -16px repeat-x;
+    width: 80px;
+    height: 16px;
+    text-align:initial;
+}
+
+span.note span, span {
+    background-position: 0 0;
+}
+
+span.note {
+    vertical-align:text-top;
+}
+
+span.avis {
+    display:block;
+}
+
+span.date-avis {
+    display:block;
+    font-style:italic;
+    font-size:0.8rem;
+}
+
+#fiche_restaurant {
+    position:absolute;
+    top:30%;
+    left:40%;
+    z-index:9999;
+}
+
+.infos_restaurant {
+    margin-bottom:30px;
+    width:40%; /* Pour enlever le décalage entre les images à cause de l'adresse*/
+}
+
+.nom_commentateur {
+    margin-right:10px;
+}
+
+.nom-util, .txt-avis {
+    font-size:0.9rem;
+}
+
+
+
+#btn_valideravis {
+    margin-bottom:20px;
+}
+
+.restaurant {
+    display:inline-block;
+    width:100%;
+}
+
+.restaurant:hover {
+    background-color:lightgray;
+}
+
+.liste_avis {
+    width:80%;
+    margin:auto;
+    position:relative; /* Pour que la taille des avis puisse être fixée quand on ferme la liste */
+}
+
+.liste_avis > div { /* Div contenant les avis */
+    position:relative; /* Pour que la taille des avis puisse être fixée quand on ferme la liste */
+}
+
+.ouvrir-avis, .voir-suite-avis {
+    display:inline-block;
+    color:white;
+    background-color:rgb(255,40,40);
+    border-radius:5px 5px;
+    padding:5px;
+    text-decoration:none;
+}
+
+.ouvrir-avis {
+    font-weight:bold;
+}
+
+.ouvrir-avis:hover, .voir-suite-avis:hover {
+    cursor:pointer;
+    background-color:red;
+    color:white;
+}
+
+
+.voir-suite-avis {
+    color:white;
+    font-weight:lighter;
+}
+
+
+
+
+.note_liste_avis {
+    margin-bottom:10px;
+}
+
+.btn-fermer-avis {
+    display:block;
+    text-decoration:none;
+    background-color:red;
+    color:white;
+    text-align: center;
+    padding: 5px;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.btn-valider-avis {
+    width:100%;
+}
+
+.btn-fermer-avis:hover {
+    cursor:pointer;
+}
+
+#filtre {
+    opacity:0;
+    background-color:blue;
+    color:white;
+    font-weight:lighter;
+    text-align:center;
+    border-radius: 5px 5px 0px 0px;
+    position:relative;
+}
+
+.content { /* cf style.css du site */
+
+    min-height:100%;
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+    /* color: red; */
+}
+
+
+/* Display mobile portrait + landscape */
+@media only screen and (max-device-width:800px) {
+    #carte {
+        height:50%;
+    }
+
+    #interface {
+        height:100%;
+    }
+
+    /* Affichage full screen */
+    .page-title-fullscreen, .page-header-fullscreen, .avertissement-mobile-fullscreen, .navbar-fullscreen, .filtre-fullscreen, .footer-fullscreen {
+        pointer-events:none;
+        opacity:0;
+    }
+
+    .right-part-fullscreen {
+        position:absolute;
+        bottom: 0;
+        height:50px;
+        padding: 0;
+        width:100%;
+    }
+
+    .panel-fullscreen {
+        position:relative;
+        bottom:0;
+        height:100%;
+        background-color:white;
+        z-index:2147483647;
+
+    }
+    .liste-restaurants-fullscreen {
+        background-color:white;
+        width:100% !important;
+        height:80% !important;
+    }
+
+
+}
+/* Media query laptop & plus grand :
+
+*/
+@media only screen and (min-device-width:961px)  {
+    .right-part-fullscreen {
+        height:100%;
+        padding:0;
+    }
+
+    .panel-fullscreen {
+        background-color:rgba(255,255,255,0.5);
+    }
+
+    .panel-fullscreen:hover {
+        background-color:rgba(255,255,255,1);
+        transition:background-color 200ms linear;
+    }
+
+    #liste_restaurants {
+        perspective:800px;
+    }
+
+}
+
+.cursor-wait { /* Utilisée par ex pendant le temps de chargement des avis, pour indiquer que le prog n'a pas planté */
+    cursor:wait;
+}
+
+/* Affichage full screen */
+#afficher-restaurants-fullscreen {
+    display:none;
+    position:relative;
+    z-index:2147483647;
+    width:100%;
+    text-align:center;
+    background-color:blue;
+    color:white;
+    height:50px;
+    line-height:50px;
+    margin:0;
+    font-size:1rem;
+}
+
+.right-part-fullscreen, .right-part-fullscreen > * {
+    font-size:.9rem;
+}
+
+.interface-fullscreen {
+    height:100% !important;
+    width:100%;
+    margin:0;
+}
+
+:-webkit-full-screen {
+    font-size:60px;
+}
+
+
+
+.carte-fullscreen {
+    height:0 !important;
+}
+
+#btn-retour {
+    margin-left:30px;
+    margin-top:10px;
+    height:30px;
+    width:30px;
+}
+
+
+
+/* En plein écran, on n'arrondit pas les bords du filtre */
+.filtre-fullscreen {
+    border-radius:0 !important;
+}
+
+.navbar-fullscreen {
+    padding:0;
+}
+
+.content-fullscreen {
+    height:100%;
+    width:100%;
+    margin:0;
+    position:absolute;
+    bottom:0;
+    padding:0;
+}
+
+.img-restaurant {
+    height:100px;
+}
+
+#coords-photo-restaurant {
+    display:flex;
+    justify-content:space-around;
+}
+
+#btn-retour {
+    float:left;
+}
+
+.form-nv-avis {
+    width:80%;
+    margin:3rem auto;
+
+}
+/* TEST ANIMATION CSS */
+
+@keyframes animation-fullscreen-rightpart {
+    0% { height:0%}
+    25% { height:25%}
+    50% { height:50%}
+    75% { height:75%}
+    100% { height:100%}
+}
+/*
+
+@keyframes animation-fullscreen-rightpart {
+    0% { height:0px}
+    25% { height:183px}
+    50% { height:366px}
+    75% { height:549px}
+    100% { height:732px}
+}*/
+.classe-animation-fullscreen {
+
+    /*animation-name:animation-fullscreen-rightpart;
+    animation-duration:0.5s;
+    animation-timing-function:linear;
+    animation-fill-mode:forwards;*/
+    transform: translateY(calc( -100% + 50px) ) rotateZ(360deg);
+    transition:transform 500ms linear;
+    will-change:transform;
+
+}
+
+
+.anim-avis {
+
+    /*height:auto;*/
+    /*transform: translateY(-100%);*/
+    transition: height 1s linear;
+}

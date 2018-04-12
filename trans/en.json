@@ -1,0 +1,6 @@
+{
+    "AVIS":"reviews",
+    "MESSAGE_GEOLOC": "Your localization couldn't be found. Please enter a city so that we can geolocate you accurately.",
+    "FERMER_AVIS": "Close the reviews",
+    "VOIR_AVIS_COMPLET": "Click for the whole review"
+}
