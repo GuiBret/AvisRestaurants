@@ -64,7 +64,7 @@ function ajouterRestaurants(restaurants) { // Fonction callback de getRestaurant
 
     if(!launched) {
         launched = true;
-        google.maps.event.addListener(carte, "idle", afficherListeRestaurants); // On utilise l'évènement idle pour charger une seule fois la liste
+        google.maps.event.addListener(carte, "tilesloaded", afficherListeRestaurants); // On utilise l'évènement idle pour charger une seule fois la liste
 
     }
 
