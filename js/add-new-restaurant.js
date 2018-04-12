@@ -70,13 +70,12 @@ function generateButtonsDiv(new_restaurant_coords) {
 
     $btn_valider.on("click", function(e) {
         e.preventDefault();
-    console.log('Clic')
 
     var adresse = $("#adresse_nv_restaurant").val().split(","),
         codepostal_ville = adresse[1].trim().split(" ");
 
 
-    console.log(new_restaurant_coords);
+
     let infosRestaurant = {
         "nom":$("#nom_nv_restaurant").val(),
         "id":genererIdRestaurant($("#nom_nv_restaurant").val()),

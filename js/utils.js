@@ -1,7 +1,5 @@
 /* jshint esversion:6 */
 
-
-
 function genererIdRestaurant(nom_restaurant) { // Fonction transformant le nom d'un nouveau restaurant en id
     return nom_restaurant.toLowerCase().replace(/ /g, "-");
 }

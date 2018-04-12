@@ -48,10 +48,6 @@ $(".filtre_min").on("click", appliquerNote);
 $(".filtre_max").on("click", appliquerNote);
 
 
-
-
-
-
 /* FONCTIONS CREATION CARTE */
 
 function initMap() {
@@ -82,8 +78,6 @@ function creationCarte(position) { // Procédure normale (avec géoloc)
     });
     markerCluster = new MarkerClusterer(carte, [], {imagePath:"https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m"});
     appliquerListeners()
-
-
 
 }
 

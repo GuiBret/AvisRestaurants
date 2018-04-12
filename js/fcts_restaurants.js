@@ -89,7 +89,7 @@ function afficherListeRestaurants(position_util = "") { // Fonction nécessaire 
 function genFicheNouveauRestaurant(event) { // L'image et l'adresse seront recherchées grâce à l'API google maps
 
     $("body").children(":not(#fiche_restaurant)").fadeTo("slow", 0.1);
-    console.log(event.latLng.lat());
+    
     let $fiche = $("<div id='container_fiche'></div>"),
         new_restaurant_coords = event.latLng,
         $formulaire = generateRestaurantForm(new_restaurant_coords),
