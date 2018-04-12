@@ -1,13 +1,6 @@
 /* FONCTIONS RESTAURANTS EXISTANTS */
 
-function getListeRestaurants(coords, callback) {
-    var params = "longitude="+ coords.longitude +"&latitude="+ coords.latitude+ "&categories=hotels,restaurants" + (conf.isMobile) ? "&limit=10" : "";
-    var params2 = `longitude=${coords.longitude}&latitude=${coords.latitude}&categories=hotels,restaurants${conf.isMobile ? `&limit=10`:``}`;
-
-    get("https://api.yelp.com/v3/businesses/search?"+ params2, callback, []);
-}
-
-function ajouterRestaurants(restaurants) { // Fonction callback de getListeRestaurants() ajoutant les restaurants à liste_restaurants et les affiche dans la liste à l'écran
+function ajouterRestaurants(restaurants) { // Fonction callback de getRestaurants() ajoutant les restaurants à liste_restaurants et les affiche dans la liste à l'écran
 
     let restaurant, // Element de classe Restaurant qui sera créé
         iter_restaurant, // Itérateur dans les réponses
@@ -71,7 +64,7 @@ function ajouterRestaurants(restaurants) { // Fonction callback de getListeResta
 
     if(!launched) {
         launched = true;
-        google.maps.event.addListener(carte, "tilesloaded", afficherListeRestaurants); // On utilise l'évènement idle pour charger une seule fois la liste
+        google.maps.event.addListener(carte, "idle", afficherListeRestaurants); // On utilise l'évènement idle pour charger une seule fois la liste
 
     }
 
@@ -95,7 +88,7 @@ function afficherListeRestaurants(position_util = "") { // Fonction nécessaire 
         };
 
     }
-    getListeRestaurants(coords, ajouterRestaurants); // Dans ajax.js
+    getRestaurants(coords, ajouterRestaurants); // Dans ajax.js
 }
 
 /* FONCTIONS NOUVEAU RESTAURANT */
