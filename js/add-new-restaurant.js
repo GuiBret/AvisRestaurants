@@ -1,7 +1,7 @@
-function generateRestaurantForm(coords) {
+function generateRestaurantForm(new_restaurant_coords) {
     let $restaurant_form = $("<div id='fiche_restaurant'></div>"),
         $title = generateTitle(),
-        $form_container = generateFormContainer(coords);
+        $form_container = generateFormContainer(new_restaurant_coords);
 
     $restaurant_form.append($title, [$form_container]);
 
@@ -19,10 +19,10 @@ function generateInfoContainer() {
 
 }
 
-function generateFormContainer(coords) {
+function generateFormContainer(new_restaurant_coords) {
     let $container = $("<div class='row'></div>"),
-        $image_div = generateImageDiv(coords),
-        $info_container = generateInfoContainer(coords);
+        $image_div = generateImageDiv(new_restaurant_coords),
+        $info_container = generateInfoContainer(new_restaurant_coords);
 
     $container.append($image_div, [$info_container]);
 
@@ -47,13 +47,13 @@ function generateNameInputDiv() {
               </div>`);
 }
 
-function generateImageDiv(coords) {
+function generateImageDiv(new_restaurant_coords) {
     return $(`<div id='div_image' class='col-4'>
-                        <img id='image_nv_restaurant' src='http://maps.googleapis.com/maps/api/streetview?size=225x225&location=${coords.lat()},${coords.lng()}&key=AIzaSyBZL6hoTD5XKj49lE-88DCaW4WVpenW2d0' />
+                        <img id='image_nv_restaurant' src='http://maps.googleapis.com/maps/api/streetview?size=225x225&location=${new_restaurant_coords.lat()},${new_restaurant_coords.lng()}&key=AIzaSyBZL6hoTD5XKj49lE-88DCaW4WVpenW2d0' />
               </div>`);
 }
 
-function generateButtonsDiv() {
+function generateButtonsDiv(new_restaurant_coords) {
     let $elem_boutons = $("<div class='d-flex flex-row justify-content-around' id='add-restaurant-btns'></div>"),
         $btn_valider = $("<button class='btn'>Valider</button>"),
         $btn_annuler = $("<button class='btn'>Annuler</button>");
@@ -70,10 +70,13 @@ function generateButtonsDiv() {
 
     $btn_valider.on("click", function(e) {
         e.preventDefault();
+    console.log('Clic')
 
     var adresse = $("#adresse_nv_restaurant").val().split(","),
         codepostal_ville = adresse[1].trim().split(" ");
 
+
+    console.log(new_restaurant_coords);
     let infosRestaurant = {
         "nom":$("#nom_nv_restaurant").val(),
         "id":genererIdRestaurant($("#nom_nv_restaurant").val()),
@@ -83,8 +86,8 @@ function generateButtonsDiv() {
         "ville":codepostal_ville[1],
         "rating": 0,
         "review_count":0,
-        "latitude":coords.lat(),
-        "longitude":coords.lng(),
+        "latitude":new_restaurant_coords.lat(),
+        "longitude":new_restaurant_coords.lng(),
         custom:true
     },
         restaurant;

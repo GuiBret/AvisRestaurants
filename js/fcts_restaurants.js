@@ -38,7 +38,7 @@ function ajouterRestaurants(restaurants) { // Fonction callback de getRestaurant
     });
 
     restaurants_custom.forEach(function(iter_restaurant){
-            var coords = {lat:iter_restaurant.info.latitude, lng:iter_restaurant.info.longitude};
+            let coords = {lat:iter_restaurant.info.latitude, lng:iter_restaurant.info.longitude};
 
             if(bounds.contains(coords)) { // On vérifie que le restaurant se trouve dans les coordonnées
                 if(note_min <= iter_restaurant.info.rating && iter_restaurant.info.rating <= note_max) {
@@ -89,13 +89,13 @@ function afficherListeRestaurants(position_util = "") { // Fonction nécessaire 
 function genFicheNouveauRestaurant(event) { // L'image et l'adresse seront recherchées grâce à l'API google maps
 
     $("body").children(":not(#fiche_restaurant)").fadeTo("slow", 0.1);
-
+    console.log(event.latLng.lat());
     let $fiche = $("<div id='container_fiche'></div>"),
-        coords = event.latLng,
-        $formulaire = generateRestaurantForm(coords),
-        $buttons_div = generateButtonsDiv();
+        new_restaurant_coords = event.latLng,
+        $formulaire = generateRestaurantForm(new_restaurant_coords),
+        $buttons_div = generateButtonsDiv(new_restaurant_coords);
 
-    getNewRestaurantAddress(coords, handleNewRestaurantAddress); // In ajax.js, searches the address of the restaurant we've clicked using Geocode
+    getNewRestaurantAddress(new_restaurant_coords, handleNewRestaurantAddress); // In ajax.js, searches the address of the restaurant we've clicked using Geocode
 
 
     $formulaire.append($buttons_div);
