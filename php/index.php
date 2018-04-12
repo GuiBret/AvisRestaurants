@@ -24,10 +24,7 @@ function get() {
 
 
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); // Sert à supprimer le "1" en fin de chaîne pour parser le JSON correctement
-        /*
-        $response = curl_exec($ch);
-        echo $response;
-        */
+        
 
         $response = json_decode(curl_exec($ch));
         curl_close($ch);
@@ -37,7 +34,7 @@ function get() {
     catch(Exception $e) {
         echo $e;
     }
-    
+
     if(isset($_POST["data-type"]) && $_POST["data-type"] == "avis") {
         echo json_encode($response);
     } else {

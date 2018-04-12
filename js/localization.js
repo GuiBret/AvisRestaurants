@@ -1,6 +1,7 @@
 class Localization {
     constructor(lang) {
         this.lang = lang;
+        
         getJSON(lang, this); // Recherche le dictionnaire, utilise un callback appelé initData contenant les données
 
     }
