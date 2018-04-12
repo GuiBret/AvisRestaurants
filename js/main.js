@@ -80,7 +80,7 @@ function creationCarte(position) { // Procédure normale (avec géoloc)
         mapTypeControl:false
 
     });
-    markerCluster = new MarkerClusterer(carte, [], {imagePath:"/p/AvisRestaurants/img/cluster/m"});
+    markerCluster = new MarkerClusterer(carte, [], {imagePath:"https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m"});
     appliquerListeners()
 
 
@@ -123,7 +123,7 @@ function rechercherVille(response) { // Callback de gestionErreur récupérant l
                     });
 
         appliquerListeners(); // Fonction permettant de gérer les entrées utilisateurs (mouvement de la carte pour recharger la liste & clic droit pour ajout nv restaurant)
-        markerCluster = new MarkerClusterer(carte, [], {imagePath:"/p/AvisRestaurants/img/cluster/m"});
+        markerCluster = new MarkerClusterer(carte, [], {imagePath:"https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m"});
 
         afficherListeRestaurants();
         $("body").show();
