@@ -41,15 +41,14 @@ class Restaurant {
 
         $div_restaurant.find("span.note").genElemNote();
         var $this = this;
-        $(`#btnavis_${this.info.id}`).on("click", function(e) { // Création du listener d'affichage des avis
-            e.stopPropagation();
+        $(`#btnavis_${this.info.id}`).on("click", (e) => { // Création du listener d'affichage des avis
             e.preventDefault();
 
 
             if(!$this.info.custom) { // Si on a un restaurant récupéré par Yelp
                 let elem_restaurant = $(`#div-${$this.info.id}`);
 
-                let id = $this.info.id, // on enlève "btn-avis_" pour récupérer l'id du restaurant
+                let id = this.info.id,
                     callbackArgs;
 
 
@@ -61,12 +60,15 @@ class Restaurant {
                     get(`https://api.yelp.com/v3/businesses/${id}/reviews?locale=${conf.getLocale()}${conf.isMobile ? `&limit=10` : ``}`, creerListeAvis, callbackArgs);
 
                 } else { // Pour éviter d'avoir à la recharger, on l'affiche
-                    elem_restaurant.find(".liste_avis").slideToggle(800);
+                    let review_count = elem_restaurant.find(".liste_avis").find(".avis").length;
+
+                    elem_restaurant.find(".liste_avis").show();
+                    elem_restaurant.find(".liste_avis").animate({"height":`${40+(20*review_count)}vh`}, 1000); // Formule : 40 (longueur form) + (20 (longueur avis) * nb_avis)
                 }
             } else { // Si on est sur un restaurant custom
-                var div_avis = $("<div class='liste_avis'></div>"),
-                    liste_avis_custom = avis_custom.rechercherAvisDeResto($this.info.id),
-                    form_nouvel_avis = genererFormulaireNouvelAvis($this.info.id),
+                let div_avis = $("<div class='liste_avis'></div>"),
+                    liste_avis_custom = avis_custom.rechercherAvisDeResto(id),
+                    form_nouvel_avis = genererFormulaireNouvelAvis(id),
                     elem_avis;
 
                 liste_avis_custom.forEach(function(avis) {
