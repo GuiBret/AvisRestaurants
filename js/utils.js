@@ -46,7 +46,7 @@ function appliquerNote(e) { // Fonction changeant la note du filtre de notes de 
 
 
 function sortieFicheRestaurant() { // Réaffiche la page correctement après l'ajout ou non d'un nouveau restaurant
-    $("#fiche_restaurant").remove();
+    $("#container_fiche").remove();
     $("body").children().fadeTo("slow", 1);
 }
 

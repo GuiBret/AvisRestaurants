@@ -98,26 +98,28 @@ function genFicheNouveauRestaurant(event) { // L'image et l'adresse seront reche
 
     $("body").children(":not(#fiche_restaurant)").fadeTo("slow", 0.1);
 
-    var $fiche = $("<div></div>"),
-        $titre = $("<h3>Ajout d'un nouveau restaurant</h3>"),
-        $formulaire = $("<form></form>"),
-        $elem_nom = $("<div></div>"),
-        $elem_image = $("<div></div>"),
-        $elem_adresse = $("<div></div>"),
+    var $fiche = $("<div id='container_fiche'></div>"),
+        coords = event.latLng,
+        $titre = $("<h3 class='text-center' id='add-new-restaurant-title'>Ajout d'un nouveau restaurant</h3>"),
+        $formulaire = $("<form id='fiche_restaurant'></form>"),
+        $container_div = $("<div class='row'></div>"),
+        $info_container = $("<div class='col-8'></div>"),
+        $elem_nom = $(`<div id='div_nom' class='d-flex flex-column'>
+                            <label for='nom_nv_restaurant'>Nom du restaurant : </label>
+                            <input type='text' id='nom_nv_restaurant' />
+                        </div>`),
+        $elem_image = $(`<div id='div_image' class='col-4'>
+                            <img id='image_nv_restaurant' src='http://maps.googleapis.com/maps/api/streetview?size=200x200&location=${coords.lat()},${coords.lng()}&key=AIzaSyBZL6hoTD5XKj49lE-88DCaW4WVpenW2d0' />
+                         </div>`),
+        $elem_adresse = $("<div id='div_adresse'></div>"),
         $elem_boutons = $("<div></div>"),
         $btn_valider = $("<button></button>"),
-        $btn_annuler = $("<button></button>"),
-        coords = event.latLng;
+        $btn_annuler = $("<button></button>");
+
 
     $titre.html("Ajout d'un nouveau restaurant");
 
-    $elem_image.attr("id", "div_image");
-    $elem_adresse.attr('id', "div_adresse");
-
     $elem_boutons.css("display", "inline");
-
-    $elem_nom.html("<label for='nom_nv_restaurant'>Nom du restaurant : </label><input type='text' id='nom_nv_restaurant' /><br />");
-    $elem_image.html(`<img id='image_nv_restaurant' src='http://maps.googleapis.com/maps/api/streetview?size=100x100&location=${coords.lat()},${coords.lng()}&key=AIzaSyBZL6hoTD5XKj49lE-88DCaW4WVpenW2d0' />`);
     $elem_adresse.html(`<label for='adresse_nv_restaurant'>Adresse du restaurant : </label><textarea id='adresse_nv_restaurant' readonly cols='35' rows='3'></textarea> `);
 
     var latLng = event.latlng;
@@ -140,12 +142,15 @@ function genFicheNouveauRestaurant(event) { // L'image et l'adresse seront reche
     $elem_boutons.append($btn_annuler);
 
 
-    $fiche.attr("id", "fiche_restaurant");
-
     $formulaire.append($titre);
-    $formulaire.append($elem_image);
-    $formulaire.append($elem_nom);
-    $formulaire.append($elem_adresse);
+
+    $container_div.append($elem_image);
+
+    $info_container.append($elem_nom);
+    $info_container.append($elem_adresse);
+
+    $container_div.append($info_container);
+    $formulaire.append($container_div);
     $formulaire.append($elem_boutons);
 
     $fiche.append($formulaire);
