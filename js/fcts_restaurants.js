@@ -23,8 +23,6 @@ function ajouterRestaurants(restaurants) { // Fonction callback de getRestaurant
                 if(note_min <= restaurant.info["rating"] && restaurant.info["rating"] <= note_max)
                     restaurant.genFicheRestaurant();
 
-
-
             } else {
                 var restaurant_actuel = liste_restaurants.rechercherRestaurant(iter_restaurant.id);
 
@@ -35,14 +33,8 @@ function ajouterRestaurants(restaurants) { // Fonction callback de getRestaurant
                 }  else {
                     restaurant_actuel.marqueur.setVisible(false);
                 }
-
-
             }
         }
-
-
-
-
     });
 
     restaurants_custom.forEach(function(iter_restaurant){
@@ -103,8 +95,6 @@ function genFicheNouveauRestaurant(event) { // L'image et l'adresse seront reche
         $formulaire = generateRestaurantForm(coords),
         $buttons_div = generateButtonsDiv();
 
-
-
     getNewRestaurantAddress(coords, handleNewRestaurantAddress); // In ajax.js, searches the address of the restaurant we've clicked using Geocode
 
 
@@ -134,112 +124,3 @@ function handleNewRestaurantAddress(response) {
     -------- #boutons
 
 */
-function generateRestaurantForm(coords) {
-    let $restaurant_form = $("<div id='fiche_restaurant'></div>"),
-        $title = generateTitle(),
-        $form_container = generateFormContainer(coords);
-
-    $restaurant_form.append($title, [$form_container]);
-
-    return $restaurant_form;
-}
-
-function generateInfoContainer() {
-    let $info_container = $("<div class='col-8'></div>"),
-        $name_div = generateNameInputDiv(),
-        $address_div = generateAddressDiv();
-
-    $info_container.append($name_div, [$address_div]);
-
-    return $info_container;
-
-}
-
-function generateFormContainer(coords) {
-    let $container = $("<div class='row'></div>"),
-        $image_div = generateImageDiv(coords),
-        $info_container = generateInfoContainer(coords);
-
-    $container.append($image_div, [$info_container]);
-
-    return $container;
-}
-
-function generateTitle() {
-    return $("<h3 class='text-center' id='add-new-restaurant-title'>Ajout d'un nouveau restaurant</h3>");
-}
-
-function generateAddressDiv() {
-    return $(`<div class="form-group"><label for='adresse_nv_restaurant'>Adresse du restaurant : </label>
-                <textarea id='adresse_nv_restaurant' readonly cols='35' rows='3' class='form-control'></textarea>
-              </div>`);
-
-}
-
-function generateNameInputDiv() {
-    return $(`<div id='div_nom' class='d-flex flex-column form-group'>
-                        <label for='nom_nv_restaurant'>Nom du restaurant : </label>
-                        <input type='text' id='nom_nv_restaurant' class='form-control'/>
-              </div>`);
-}
-
-function generateImageDiv(coords) {
-    return $(`<div id='div_image' class='col-4'>
-                        <img id='image_nv_restaurant' src='http://maps.googleapis.com/maps/api/streetview?size=225x225&location=${coords.lat()},${coords.lng()}&key=AIzaSyBZL6hoTD5XKj49lE-88DCaW4WVpenW2d0' />
-              </div>`);
-}
-
-function generateButtonsDiv() {
-    let $elem_boutons = $("<div class='d-flex flex-row justify-content-around' id='add-restaurant-btns'></div>"),
-        $btn_valider = $("<button class='btn'>Valider</button>"),
-        $btn_annuler = $("<button class='btn'>Annuler</button>");
-
-
-
-    /* Adding listeners */
-
-    $btn_annuler.on("click", function(e) {
-        e.preventDefault();
-        sortieFicheRestaurant();
-
-    });
-
-    $btn_valider.on("click", function(e) {
-        e.preventDefault();
-
-    var adresse = $("#adresse_nv_restaurant").val().split(","),
-        codepostal_ville = adresse[1].trim().split(" ");
-
-    let infosRestaurant = {
-        "nom":$("#nom_nv_restaurant").val(),
-        "id":genererIdRestaurant($("#nom_nv_restaurant").val()),
-        "image":$("#image_nv_restaurant").attr("src"),
-        "adresse":adresse[0],
-        "code_postal":codepostal_ville[0],
-        "ville":codepostal_ville[1],
-        "rating": 0,
-        "review_count":0,
-        "latitude":coords.lat(),
-        "longitude":coords.lng(),
-        custom:true
-    },
-        restaurant;
-
-
-    restaurant = new Restaurant(infosRestaurant);
-
-    liste_restaurants.ajouterRestaurant(restaurant);
-
-    restaurant.genFicheRestaurant();
-
-
-    sortieFicheRestaurant();
-
-    });
-
-    $elem_boutons.append($btn_valider);
-    $elem_boutons.append($btn_annuler);
-
-    return $elem_boutons;
-
-}

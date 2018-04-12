@@ -55,6 +55,7 @@
 			  crossorigin="anonymous"></script>
 
         <script type='text/javascript' src='js/fcts_avis.js'></script>
+        <script type='text/javascript' src='js/add-new-restaurant.js'></script>
         <script type='text/javascript' src='js/fcts_restaurants.js'></script>
         <script type='text/javascript' src="js/ajax.js"></script>
         <script type="text/javascript" src="js/configuration.js"></script>
