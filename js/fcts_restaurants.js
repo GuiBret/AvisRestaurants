@@ -164,31 +164,27 @@ function generateFormContainer(coords) {
     return $container;
 }
 
-function generateButtons() {
-
-}
-
 function generateTitle() {
     return $("<h3 class='text-center' id='add-new-restaurant-title'>Ajout d'un nouveau restaurant</h3>");
 }
 
 function generateAddressDiv() {
-    return $(`<div><label for='adresse_nv_restaurant'>Adresse du restaurant : </label>
-                <textarea id='adresse_nv_restaurant' readonly cols='35' rows='3'></textarea>
+    return $(`<div class="form-group"><label for='adresse_nv_restaurant'>Adresse du restaurant : </label>
+                <textarea id='adresse_nv_restaurant' readonly cols='35' rows='3' class='form-control'></textarea>
               </div>`);
 
 }
 
 function generateNameInputDiv() {
-    return $(`<div id='div_nom' class='d-flex flex-column'>
+    return $(`<div id='div_nom' class='d-flex flex-column form-group'>
                         <label for='nom_nv_restaurant'>Nom du restaurant : </label>
-                        <input type='text' id='nom_nv_restaurant' />
+                        <input type='text' id='nom_nv_restaurant' class='form-control'/>
               </div>`);
 }
 
 function generateImageDiv(coords) {
     return $(`<div id='div_image' class='col-4'>
-                        <img id='image_nv_restaurant' src='http://maps.googleapis.com/maps/api/streetview?size=200x200&location=${coords.lat()},${coords.lng()}&key=AIzaSyBZL6hoTD5XKj49lE-88DCaW4WVpenW2d0' />
+                        <img id='image_nv_restaurant' src='http://maps.googleapis.com/maps/api/streetview?size=225x225&location=${coords.lat()},${coords.lng()}&key=AIzaSyBZL6hoTD5XKj49lE-88DCaW4WVpenW2d0' />
               </div>`);
 }
 
