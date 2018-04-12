@@ -100,7 +100,7 @@ function creerListeAvis(response, args) { // Fct callback de getAvisRestaurants 
 
         div_avis.addClass("liste_avis");
         div_avis.css("height", "0vh");
-        console.log(response);
+
 
         response.reviews.forEach(function(avis) {
 
@@ -123,7 +123,6 @@ function creerListeAvis(response, args) { // Fct callback de getAvisRestaurants 
 
         fermerAvis.on("click", function(e) {
             e.stopPropagation();
-            console.log($(this).parent().html());
             $(this).parent().animate({"height":"0vh"}, 1000, function() {
                 $(this).css("display", "none");
             }); // On ferme la liste correspondante

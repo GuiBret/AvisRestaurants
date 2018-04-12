@@ -93,36 +93,16 @@ function afficherListeRestaurants(position_util = "") { // Fonction nécessaire 
 
 /* FONCTIONS NOUVEAU RESTAURANT */
 
-
+// Generates #container_fiche & #fiche_restaurant
 function genFicheNouveauRestaurant(event) { // L'image et l'adresse seront recherchées grâce à l'API google maps
 
     $("body").children(":not(#fiche_restaurant)").fadeTo("slow", 0.1);
 
-    var $fiche = $("<div id='container_fiche'></div>"),
+    let $fiche = $("<div id='container_fiche'></div>"),
         coords = event.latLng,
-        $titre = $("<h3 class='text-center' id='add-new-restaurant-title'>Ajout d'un nouveau restaurant</h3>"),
-        $formulaire = $("<form id='fiche_restaurant'></form>"),
-        $container_div = $("<div class='row'></div>"),
-        $info_container = $("<div class='col-8'></div>"),
-        $elem_nom = $(`<div id='div_nom' class='d-flex flex-column'>
-                            <label for='nom_nv_restaurant'>Nom du restaurant : </label>
-                            <input type='text' id='nom_nv_restaurant' />
-                        </div>`),
-        $elem_image = $(`<div id='div_image' class='col-4'>
-                            <img id='image_nv_restaurant' src='http://maps.googleapis.com/maps/api/streetview?size=200x200&location=${coords.lat()},${coords.lng()}&key=AIzaSyBZL6hoTD5XKj49lE-88DCaW4WVpenW2d0' />
-                         </div>`),
-        $elem_adresse = $("<div id='div_adresse'></div>"),
-        $elem_boutons = $("<div></div>"),
-        $btn_valider = $("<button></button>"),
-        $btn_annuler = $("<button></button>");
+        $formulaire = generateRestaurantForm(coords),
+        $buttons_div = generateButtonsDiv();
 
-
-    $titre.html("Ajout d'un nouveau restaurant");
-
-    $elem_boutons.css("display", "inline");
-    $elem_adresse.html(`<label for='adresse_nv_restaurant'>Adresse du restaurant : </label><textarea id='adresse_nv_restaurant' readonly cols='35' rows='3'></textarea> `);
-
-    var latLng = event.latlng;
 
     get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${coords.lat()},${coords.lng()}&key=AIzaSyBZL6hoTD5XKj49lE-88DCaW4WVpenW2d0`,function(response) {
 
@@ -132,28 +112,94 @@ function genFicheNouveauRestaurant(event) { // L'image et l'adresse seront reche
 
     }, [], "");
 
-    $("#image_nv_restaurant").attr("src", "");
 
-
-    $btn_valider.html("Valider");
-    $btn_annuler.html("Annuler");
-
-    $elem_boutons.append($btn_valider);
-    $elem_boutons.append($btn_annuler);
-
-
-    $formulaire.append($titre);
-
-    $container_div.append($elem_image);
-
-    $info_container.append($elem_nom);
-    $info_container.append($elem_adresse);
-
-    $container_div.append($info_container);
-    $formulaire.append($container_div);
-    $formulaire.append($elem_boutons);
-
+    $formulaire.append($buttons_div);
     $fiche.append($formulaire);
+
+    $("body").append($fiche);
+
+}
+
+
+/*
+    #container_fiche
+    ---- #fiche_restaurant
+    -------- #titre
+    -------- #form_container
+    ----------------- #div_img
+    ----------------- #info_container
+    ---------------------- #div_nom
+    ---------------------- #div_adresse
+    -------- #boutons
+
+*/
+function generateRestaurantForm(coords) {
+    let $restaurant_form = $("<div id='fiche_restaurant'></div>"),
+        $title = generateTitle(),
+        $form_container = generateFormContainer(coords);
+
+    $restaurant_form.append($title, [$form_container]);
+
+    return $restaurant_form;
+}
+
+function generateInfoContainer() {
+    let $info_container = $("<div class='col-8'></div>"),
+        $name_div = generateNameInputDiv(),
+        $address_div = generateAddressDiv();
+
+    $info_container.append($name_div, [$address_div]);
+
+    return $info_container;
+
+}
+
+function generateFormContainer(coords) {
+    let $container = $("<div class='row'></div>"),
+        $image_div = generateImageDiv(coords),
+        $info_container = generateInfoContainer(coords);
+
+    $container.append($image_div, [$info_container]);
+
+    return $container;
+}
+
+function generateButtons() {
+
+}
+
+function generateTitle() {
+    return $("<h3 class='text-center' id='add-new-restaurant-title'>Ajout d'un nouveau restaurant</h3>");
+}
+
+function generateAddressDiv() {
+    return $(`<div><label for='adresse_nv_restaurant'>Adresse du restaurant : </label>
+                <textarea id='adresse_nv_restaurant' readonly cols='35' rows='3'></textarea>
+              </div>`);
+
+}
+
+function generateNameInputDiv() {
+    return $(`<div id='div_nom' class='d-flex flex-column'>
+                        <label for='nom_nv_restaurant'>Nom du restaurant : </label>
+                        <input type='text' id='nom_nv_restaurant' />
+              </div>`);
+}
+
+function generateImageDiv(coords) {
+    return $(`<div id='div_image' class='col-4'>
+                        <img id='image_nv_restaurant' src='http://maps.googleapis.com/maps/api/streetview?size=200x200&location=${coords.lat()},${coords.lng()}&key=AIzaSyBZL6hoTD5XKj49lE-88DCaW4WVpenW2d0' />
+              </div>`);
+}
+
+function generateButtonsDiv() {
+    let $elem_boutons = $("<div class='d-flex flex-row'></div>"),
+        $btn_valider = $("<button>Valider</button>"),
+        $btn_annuler = $("<button>Annuler</button>");
+
+
+
+    /* Adding listeners */
 
     $btn_annuler.on("click", function(e) {
         e.preventDefault();
@@ -194,6 +240,9 @@ function genFicheNouveauRestaurant(event) { // L'image et l'adresse seront reche
 
     });
 
-    $("body").append($fiche);
+    $elem_boutons.append($btn_valider);
+    $elem_boutons.append($btn_annuler);
+
+    return $elem_boutons;
 
 }

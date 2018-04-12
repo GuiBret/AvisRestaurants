@@ -93,12 +93,6 @@ class Restaurant {
                 restaurant = liste_restaurants.rechercherRestaurant(parent.attr("id").substr(4)),
                 position = restaurant.getPosition();
 
-                //carte.setCenter(position);
-                //carte.setZoom(20);
-
-
-
-           console.log(position);
         });
 
     }
