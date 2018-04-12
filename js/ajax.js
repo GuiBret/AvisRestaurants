@@ -40,9 +40,10 @@ function rechercherGeolocInversee(position, callback) { // Renvoie une ville à 
 }
 
 function getJSON(lang, localizer) {
+    let path = (conf.mode === "LOCAL") ? `trans/${lang}.json` : `/p/AvisRestaurants/trans/${lang}.json`;
     $.ajax({
         method: "GET",
-        url: `/p/AvisRestaurants/trans/${lang}.json`,
+        url: path,
         contentType: "application/json",
         beforeSend: function(xhr){
             if (xhr.overrideMimeType) {
@@ -52,7 +53,6 @@ function getJSON(lang, localizer) {
         },
     })
         .done(function (data, e) {
-            console.log("Recup dico finie")
             localizer.initData(data);
 
         })
@@ -61,4 +61,15 @@ function getJSON(lang, localizer) {
             console.log(e)
         });
 
+}
+
+function getRestaurants(coords, _callback) {
+    $.ajax({
+        method: "GET",
+        url: ORIGIN + "php/get-restaurants.php",
+        data: {lat: coords.latitude, lng: coords.longitude, mobile: conf.isMobile},
+        dataType: "json"
+    }).done((data, e) => {
+        _callback(data);
+    })
 }
