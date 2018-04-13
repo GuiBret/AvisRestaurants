@@ -8,15 +8,10 @@ try {
 
     $ch = curl_init(generateGetRestaurantsURL());
 
-    if(!isset($_SESSION["APIKEY"])) {
-        $apikey_file = fopen("apikey.txt", "r") or die("Unable to open file ! ");
-        $apikey = fread($apikey_file, filesize("apikey.txt"));
-    } else {
-        $apikey = $_SESSION["APIKEY"];
-    }
+    $apikey = getAPIKey();
 
-    fclose($apikey_file);
-
+    header("Content-Type: application/json");
+    
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
     "Authorization:". "Bearer ". $apikey));
 
@@ -28,13 +23,11 @@ try {
 
 
     $response = json_decode(curl_exec($ch));
+
     curl_close($ch);
 
-    if(isset($_POST["data-type"]) && $_POST["data-type"] == "avis") {
-        echo json_encode($response);
-    } else {
-        traitementRestaurants($response->businesses);
-    }
+    traitementRestaurants($response->businesses);
+
 
 }
 catch(Exception $e) {

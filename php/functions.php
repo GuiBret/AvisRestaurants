@@ -15,7 +15,7 @@ function generateGetReviewsURL() {
     $url = "https://api.yelp.com/v3/businesses/{$_GET['id']}/reviews?locale={$_GET['locale']}";
 
     if($_GET['mobile']) {
-        $url .= "&limit=10",
+        $url .= "&limit=10";
     }
 
     return $url;
