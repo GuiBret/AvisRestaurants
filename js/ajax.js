@@ -77,7 +77,15 @@ function getRestaurants(coords, _callback) {
 function getNewRestaurantAddress(coords, _callback) {
     $.get({
         url: `https://maps.googleapis.com/maps/api/geocode/json?latlng=${coords.lat()},${coords.lng()}&key=AIzaSyBZL6hoTD5XKj49lE-88DCaW4WVpenW2d0`,
-        success: _callback
+        success: _callback,
+        dataType:"json"
+    });
+}
 
+function getRestaurantReviews(restaurant_id, _callback) {
+    $.get({
+        url: ORIGIN + "php/get-reviews.php",
+        data: {locale: conf.getLocale(), id: restaurant_id, mobile: conf.isMobile},
+        success: _callback
     });
 }

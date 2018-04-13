@@ -55,9 +55,10 @@ class Restaurant {
                 if(elem_restaurant.has(".liste_avis").length === 0) { // On vérifie s'il n'y a pas encore de liste d'avis stockée pour ce restaurant
                     callbackArgs = [id, "avis"]
 
-                    $(document.body).addClass("cursor-wait")
+                    $(document.body).addClass("cursor-wait");
 
-                    get(`https://api.yelp.com/v3/businesses/${id}/reviews?locale=${conf.getLocale()}${conf.isMobile ? `&limit=10` : ``}`, creerListeAvis, callbackArgs);
+                    getRestaurantReviews(id, creerListeAvis);
+
 
                 } else { // Pour éviter d'avoir à la recharger, on l'affiche
                     let review_count = elem_restaurant.find(".liste_avis").find(".avis").length;

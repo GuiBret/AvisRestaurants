@@ -7,7 +7,7 @@ function ajouterRestaurants(restaurants) { // Fonction callback de getRestaurant
         restaurants_custom = liste_restaurants.getRestaurantsCustom();
 
     $("#liste_restaurants").html("");
-
+    
     var bounds = carte.getBounds();
 
     restaurants.forEach(function(iter_restaurant) {
@@ -89,7 +89,7 @@ function afficherListeRestaurants(position_util = "") { // Fonction nécessaire 
 function genFicheNouveauRestaurant(event) { // L'image et l'adresse seront recherchées grâce à l'API google maps
 
     $("body").children(":not(#fiche_restaurant)").fadeTo("slow", 0.1);
-    
+
     let $fiche = $("<div id='container_fiche'></div>"),
         new_restaurant_coords = event.latLng,
         $formulaire = generateRestaurantForm(new_restaurant_coords),

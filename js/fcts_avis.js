@@ -86,11 +86,11 @@ function creerAvis(avis_util, custom) {
 
 }
 
-function creerListeAvis(response, args) { // Fct callback de getAvisRestaurants récupérant les avis sur un restaurant donné et les affichant sous la fiche de celui-ci, args : id sélectionné
+function creerListeAvis(response) { // Fct callback de getAvisRestaurants récupérant les avis sur un restaurant donné et les affichant sous la fiche de celui-ci, args : id sélectionné
     'use strict';
     if(response.code === "BUSINESS_UNAVAILABLE") {
     } else {
-        var id = args[0],
+        var id = response.id,
             elem_selectionne = $(`div#div-${id}`),
             elem_avis,
             div_avis = $("<div class='avis'></div>"),
@@ -100,7 +100,6 @@ function creerListeAvis(response, args) { // Fct callback de getAvisRestaurants 
 
         div_avis.addClass("liste_avis");
         div_avis.css("height", "0vh");
-
 
         response.reviews.forEach(function(avis) {
 
