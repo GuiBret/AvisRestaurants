@@ -11,6 +11,28 @@ function generateGetRestaurantsURL() {
 
 }
 
+function generateGetReviewsURL() {
+    $url = "https://api.yelp.com/v3/businesses/{$_GET['id']}/reviews?locale={$_GET['locale']}";
+
+    if($_GET['mobile']) {
+        $url .= "&limit=10",
+    }
+
+    return $url;
+}
+
+function getAPIKey() {
+    if(!isset($_SESSION["APIKEY"])) {
+        $apikey_file = fopen("apikey.txt", "r") or die("Unable to open file ! ");
+        $apikey = fread($apikey_file, filesize("apikey.txt"));
+        fclose($apikey_file);
+    } else {
+        $apikey = $_SESSION["APIKEY"];
+    }
+
+    return $apikey;
+}
+
 function traitementRestaurants($data) {
     $restaurants = [];
 
