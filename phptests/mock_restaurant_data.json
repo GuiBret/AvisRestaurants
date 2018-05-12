@@ -1,0 +1,355 @@
+{
+  "businesses": [{
+    "id": "0bbpuUUvnRwbFvZyKqMmHQ",
+    "alias": "mad-dogs-café-plomeur",
+    "name": "Mad Dog's Café",
+    "image_url": "",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/mad-dogs-caf%C3%A9-plomeur?adjust_creative=0gtiOiA8hfBc_GKLH-JA1g&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=0gtiOiA8hfBc_GKLH-JA1g",
+    "review_count": 2,
+    "categories": [{
+      "alias": "beachbars",
+      "title": "Beach Bars"
+    }, {
+      "alias": "cafes",
+      "title": "Cafes"
+    }, {
+      "alias": "coffee",
+      "title": "Coffee & Tea"
+    }],
+    "rating": 5.0,
+    "coordinates": {
+      "latitude": 47.8405990600586,
+      "longitude": -4.28170013427734
+    },
+    "transactions": [],
+    "location": {
+      "address1": null,
+      "address2": "",
+      "address3": "",
+      "city": "Plomeur",
+      "zip_code": "29120",
+      "country": "FR",
+      "state": "29",
+      "display_address": ["29120 Plomeur", "France"]
+    },
+    "phone": "",
+    "display_phone": "",
+    "distance": 1.5372923603654403e-09
+  }, {
+    "id": "BQC4Z_w-KNzo8nUW9ANgXQ",
+    "alias": "tara-cantine-de-mer-plobannalec-lesconil",
+    "name": "Tara Cantine de Mer",
+    "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/F1WLDVjMVU2gaqBiLoUPPw/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/tara-cantine-de-mer-plobannalec-lesconil?adjust_creative=0gtiOiA8hfBc_GKLH-JA1g&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=0gtiOiA8hfBc_GKLH-JA1g",
+    "review_count": 11,
+    "categories": [{
+      "alias": "seafood",
+      "title": "Seafood"
+    }, {
+      "alias": "french",
+      "title": "French"
+    }],
+    "rating": 4.5,
+    "coordinates": {
+      "latitude": 47.79586,
+      "longitude": -4.214998
+    },
+    "transactions": [],
+    "price": "€€",
+    "location": {
+      "address1": "Quai Ouest",
+      "address2": "Terre Plein du Port",
+      "address3": "",
+      "city": "Plobannalec Lesconil",
+      "zip_code": "29740",
+      "country": "FR",
+      "state": "29",
+      "display_address": ["Quai Ouest", "Terre Plein du Port", "29740 Plobannalec Lesconil", "France"]
+    },
+    "phone": "+33298822743",
+    "display_phone": "+33 2 98 82 27 43",
+    "distance": 7159.229164041761
+  }, {
+    "id": "m0Pv3BXiVv99IC6FpgWPqQ",
+    "alias": "men-lann-du-plomeur",
+    "name": "Men Lann Du",
+    "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/XND6JFYaOD7oF8uKfM9q8A/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/men-lann-du-plomeur?adjust_creative=0gtiOiA8hfBc_GKLH-JA1g&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=0gtiOiA8hfBc_GKLH-JA1g",
+    "review_count": 11,
+    "categories": [{
+      "alias": "creperies",
+      "title": "Creperies"
+    }],
+    "rating": 3.5,
+    "coordinates": {
+      "latitude": 47.8308499,
+      "longitude": -4.302829
+    },
+    "transactions": [],
+    "price": "€€€€",
+    "location": {
+      "address1": null,
+      "address2": "Menez Landu",
+      "address3": null,
+      "city": "Plomeur",
+      "zip_code": "29120",
+      "country": "FR",
+      "state": "29",
+      "display_address": ["Menez Landu", "29120 Plomeur", "France"]
+    },
+    "phone": "+33298820106",
+    "display_phone": "+33 2 98 82 01 06",
+    "distance": 1816.7526076270885
+  }, {
+    "id": "J5O2BMt9jxuS_hwzw2Q7wA",
+    "alias": "le-champ-des-sirènes-plomeur-2",
+    "name": "Le Champ des Sirènes",
+    "image_url": "",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/le-champ-des-sir%C3%A8nes-plomeur-2?adjust_creative=0gtiOiA8hfBc_GKLH-JA1g&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=0gtiOiA8hfBc_GKLH-JA1g",
+    "review_count": 5,
+    "categories": [{
+      "alias": "creperies",
+      "title": "Creperies"
+    }, {
+      "alias": "french",
+      "title": "French"
+    }],
+    "rating": 3.0,
+    "coordinates": {
+      "latitude": 47.8409,
+      "longitude": -4.2844
+    },
+    "transactions": [],
+    "price": "€€€",
+    "location": {
+      "address1": "Kersiviny",
+      "address2": null,
+      "address3": null,
+      "city": "Plomeur",
+      "zip_code": "29120",
+      "country": "FR",
+      "state": "29",
+      "display_address": ["Kersiviny", "29120 Plomeur", "France"]
+    },
+    "phone": "+33298820931",
+    "display_phone": "+33 2 98 82 09 31",
+    "distance": 61.124399273709045
+  }, {
+    "id": "ltwtFKy5n3_ZsZnBrqhHag",
+    "alias": "l-oliviera-plomeur",
+    "name": "L'Oliviera",
+    "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/FLrJWgAjBvHb64OhutJH7Q/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/l-oliviera-plomeur?adjust_creative=0gtiOiA8hfBc_GKLH-JA1g&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=0gtiOiA8hfBc_GKLH-JA1g",
+    "review_count": 5,
+    "categories": [{
+      "alias": "pizza",
+      "title": "Pizza"
+    }, {
+      "alias": "italian",
+      "title": "Italian"
+    }],
+    "rating": 4.0,
+    "coordinates": {
+      "latitude": 47.843841,
+      "longitude": -4.2789806
+    },
+    "transactions": [],
+    "price": "€€",
+    "location": {
+      "address1": "6 Route Pont l'Abbé",
+      "address2": null,
+      "address3": null,
+      "city": "Plomeur",
+      "zip_code": "29120",
+      "country": "FR",
+      "state": "29",
+      "display_address": ["6 Route Pont l'Abbé", "29120 Plomeur", "France"]
+    },
+    "phone": "+33298820298",
+    "display_phone": "+33 2 98 82 02 98",
+    "distance": 477.93396204581387
+  }, {
+    "id": "FjttkRGyCeTTmlkI5wfxXA",
+    "alias": "bistrot-de-la-torche-plomeur",
+    "name": "Bistrot de La Torche",
+    "image_url": "",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/bistrot-de-la-torche-plomeur?adjust_creative=0gtiOiA8hfBc_GKLH-JA1g&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=0gtiOiA8hfBc_GKLH-JA1g",
+    "review_count": 2,
+    "categories": [{
+      "alias": "french",
+      "title": "French"
+    }, {
+      "alias": "seafood",
+      "title": "Seafood"
+    }],
+    "rating": 3.5,
+    "coordinates": {
+      "latitude": 47.8425675,
+      "longitude": -4.2814874
+    },
+    "transactions": [],
+    "price": "€€",
+    "location": {
+      "address1": "1 Route Pont l'Abbé",
+      "address2": null,
+      "address3": null,
+      "city": "Plomeur",
+      "zip_code": "29120",
+      "country": "FR",
+      "state": "29",
+      "display_address": ["1 Route Pont l'Abbé", "29120 Plomeur", "France"]
+    },
+    "phone": "+33298820150",
+    "display_phone": "+33 2 98 82 01 50",
+    "distance": 246.6349216665432
+  }, {
+    "id": "2UAu4B8R4ZoMLv83lJ_TBQ",
+    "alias": "le-jardin-de-la-tulipe-plomeur",
+    "name": "Le Jardin de la Tulipe",
+    "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/E-zteoGiUzsvxfbRvFi-0g/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/le-jardin-de-la-tulipe-plomeur?adjust_creative=0gtiOiA8hfBc_GKLH-JA1g&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=0gtiOiA8hfBc_GKLH-JA1g",
+    "review_count": 1,
+    "categories": [{
+      "alias": "food",
+      "title": "Food"
+    }, {
+      "alias": "seafood",
+      "title": "Seafood"
+    }, {
+      "alias": "hotdogs",
+      "title": "Fast Food"
+    }],
+    "rating": 4.0,
+    "coordinates": {
+      "latitude": 47.8409,
+      "longitude": -4.2848
+    },
+    "transactions": [],
+    "price": "€€",
+    "location": {
+      "address1": "8 rue Louis Méhu",
+      "address2": "",
+      "address3": null,
+      "city": "Plomeur",
+      "zip_code": "29120",
+      "country": "FR",
+      "state": "29",
+      "display_address": ["8 rue Louis Méhu", "29120 Plomeur", "France"]
+    },
+    "phone": "+33298820413",
+    "display_phone": "+33 2 98 82 04 13",
+    "distance": 90.9041436628454
+  }, {
+    "id": "vclQKWfMiz40tb4DE-S5NQ",
+    "alias": "bar-le-winch-combrit",
+    "name": "Bar le winch",
+    "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/_s5wK9BtUER6GGl1se4a5A/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/bar-le-winch-combrit?adjust_creative=0gtiOiA8hfBc_GKLH-JA1g&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=0gtiOiA8hfBc_GKLH-JA1g",
+    "review_count": 6,
+    "categories": [{
+      "alias": "restaurants",
+      "title": "Restaurants"
+    }, {
+      "alias": "cocktailbars",
+      "title": "Cocktail Bars"
+    }],
+    "rating": 5.0,
+    "coordinates": {
+      "latitude": 47.8411646,
+      "longitude": -4.169289
+    },
+    "transactions": [],
+    "price": "€€€",
+    "location": {
+      "address1": "2 place de la cale Ile-Tudy",
+      "address2": "Finistere Bretagne",
+      "address3": null,
+      "city": "Combrit",
+      "zip_code": "29980",
+      "country": "FR",
+      "state": "29",
+      "display_address": ["2 place de la cale Ile-Tudy", "Finistere Bretagne", "29980 Combrit", "France"]
+    },
+    "phone": "+33298563612",
+    "display_phone": "+33 2 98 56 36 12",
+    "distance": 8530.232519728108
+  }, {
+    "id": "YC0InCRW1JHLCF015qT47w",
+    "alias": "pizz-oliv-plomeur",
+    "name": "Pizz' Oliv",
+    "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/T8ClIv45mrbK4DPHY58ijA/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/pizz-oliv-plomeur?adjust_creative=0gtiOiA8hfBc_GKLH-JA1g&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=0gtiOiA8hfBc_GKLH-JA1g",
+    "review_count": 4,
+    "categories": [{
+      "alias": "pizza",
+      "title": "Pizza"
+    }],
+    "rating": 3.0,
+    "coordinates": {
+      "latitude": 47.840708,
+      "longitude": -4.28422
+    },
+    "transactions": [],
+    "price": "€€",
+    "location": {
+      "address1": null,
+      "address2": "Place de l'Eglise",
+      "address3": "",
+      "city": "Plomeur",
+      "zip_code": "29120",
+      "country": "FR",
+      "state": "29",
+      "display_address": ["Place de l'Eglise", "29120 Plomeur", "France"]
+    },
+    "phone": "+33298820556",
+    "display_phone": "+33 2 98 82 05 56",
+    "distance": 35.93952960030338
+  }, {
+    "id": "jBHKBg1-Gzu5uZKKqNTBqQ",
+    "alias": "villa-tri-men-combrit",
+    "name": "Villa Tri Men",
+    "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/RQcsYzEGnGnNmAz7aMR-5Q/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/villa-tri-men-combrit?adjust_creative=0gtiOiA8hfBc_GKLH-JA1g&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=0gtiOiA8hfBc_GKLH-JA1g",
+    "review_count": 4,
+    "categories": [{
+      "alias": "hotels",
+      "title": "Hotels"
+    }],
+    "rating": 5.0,
+    "coordinates": {
+      "latitude": 47.8727029,
+      "longitude": -4.118442
+    },
+    "transactions": [],
+    "location": {
+      "address1": "16 rue du Phare",
+      "address2": "Sainte Marine",
+      "address3": null,
+      "city": "Combrit",
+      "zip_code": "29120",
+      "country": "FR",
+      "state": "29",
+      "display_address": ["16 rue du Phare", "Sainte Marine", "29120 Combrit", "France"]
+    },
+    "phone": "+33298519494",
+    "display_phone": "+33 2 98 51 94 94",
+    "distance": 12820.149237091116
+  }],
+  "total": 135,
+  "region": {
+    "center": {
+      "longitude": -4.283583999999999,
+      "latitude": 47.840852999999996
+    }
+  }
+}
