@@ -32,6 +32,10 @@ span.nom_commentateur {
 
 }
 
+.contenu-avis {
+    text-align:justify;
+}
+
 .restaurant:last-child {
     padding-bottom:1rem;
 }

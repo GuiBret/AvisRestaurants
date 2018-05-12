@@ -80,7 +80,7 @@ function creerAvis(avis_util, custom) {
         avis = avis_util;
     }
 
-    elem_avis.html(`<span class='nom_commentateur'>${avis.nom_util} </span><span class='note'>${avis.note}</span><span class='avis'><span class="contenu-avis">${avis.txt_avis}</span>`+ (!custom ? `<br /><a target='_blank' class="voir-suite-avis" href='${avis.url}'>Voir la suite de l'avis </a>` : "") + `</span><span class='date-avis text-right'>Publié le ${avis.date}</span><br />`);
+    elem_avis.html(`<span class='nom_commentateur'>${avis.nom_util} </span><span class='note'>${avis.note}</span><span class='avis'><p class="contenu-avis">${avis.txt_avis}</span>`+ (!custom ? `<br /><a target='_blank' class="voir-suite-avis" href='${avis.url}'>Voir la suite de l'avis </a>` : "") + `</p><span class='date-avis text-right'>Publié le ${avis.date}</span><br />`);
 
     return elem_avis;
 
