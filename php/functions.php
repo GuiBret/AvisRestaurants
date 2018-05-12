@@ -1,7 +1,7 @@
 <?php
 
 function generateGetRestaurantsURL() {
-    $url = "https://api.yelp.com/v3/businesses/search?latitude={$_GET["lat"]}&longitude={$_GET["lng"]}&categories=hotels, restaurants";
+    $url = "https://api.yelp.com/v3/businesses/search?latitude={$_GET["lat"]}&longitude={$_GET["lng"]}&categories=hotels,restaurants";
 
     if($_GET["mobile"]) { // If the user is using a mobile device
         $url .= "&limit=10";
@@ -37,29 +37,29 @@ function traitementRestaurants($data) {
     $restaurants = [];
 
     foreach($data as $element) {
-
-        $restaurant = [];
-        //echo serialize($element->location) . "\n";
-        $restaurant["nom"] = $element->name;
-        $restaurant["id"] = $element->id;
-        $restaurant["adresse"] = $element->location->address1;
-        $restaurant["code_postal"] = $element->location->zip_code;
-        $restaurant["ville"] = $element->location->city;
-        $restaurant["latitude"] = $element->coordinates->latitude;
-        $restaurant["longitude"] = $element->coordinates->longitude;
-        $restaurant["rating"] = $element->rating;
-        $restaurant["review_count"] = $element->review_count;
-        $restaurant["custom"] = false;
-
-
-        array_push($restaurants, $restaurant);
-
+        array_push($restaurants, traitementRestaurant($element));
 
     }
     echo json_encode($restaurants);
 
 }
 
+function traitementRestaurant($restaurantAAjouter) {
+    $restaurant = [];
+    $restaurant["nom"] = $restaurantAAjouter->name;
+    $restaurant["id"] = $restaurantAAjouter->id;
+    $restaurant["adresse"] = ($restaurantAAjouter->location->address1 != null) ? $restaurantAAjouter->location->address1 : "Aucune adresse trouvée";
+    $restaurant["code_postal"] = $restaurantAAjouter->location->zip_code;
+    $restaurant["ville"] = $restaurantAAjouter->location->city;
+    $restaurant["latitude"] = $restaurantAAjouter->coordinates->latitude;
+    $restaurant["longitude"] = $restaurantAAjouter->coordinates->longitude;
+    $restaurant["rating"] = $restaurantAAjouter->rating;
+    $restaurant["review_count"] = $restaurantAAjouter->review_count;
+    $restaurant["custom"] = false;
+
+    return $restaurant;
+
+}
 
 
 ?>
