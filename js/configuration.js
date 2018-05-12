@@ -10,9 +10,9 @@ class Configuration {
 
     getLocale() {
         if(this.lang === "fr") {
-            return "fr-FR";
+            return "fr_FR";
         } else if (this.lang === "en") {
-            return "en-US";
+            return "en_US";
         }
     }
 
