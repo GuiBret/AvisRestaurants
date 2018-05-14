@@ -130,8 +130,8 @@ function rechercheVilleFullScreen(e) { // Fonction callback de rightpart.animate
 
 function panelAffiche(data) { // Callback de rechercheVilleFullScreen, affiche la ville et le panneau
 
-    let ville = data.results[0].address_components[3].long_name;
-    
+    let ville = data.results[0].address_components[2].long_name;
+
     if(conf.isMobile) {
         $("#afficher-restaurants-fullscreen").html(`<img src='/p/AvisRestaurants/img/retour.png' id='btn-retour' /><span>Restaurants à ${ville}</span>`); // Contenu dans le "bouton"
         $("#panel-restaurants").fadeIn(200); // On affiche les restaurants
