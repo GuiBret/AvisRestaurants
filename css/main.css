@@ -27,7 +27,7 @@ span.nom_commentateur {
     position:absolute; /* Nécessaire pour la scrollbar avec FF / Edge */
     height:100%; /* Pour afficher les éléments scrollables */
     overflow-y: auto; /* Si on dépasse la taille de la carte, on scrolle */
-    padding-top:.8rem;
+    padding-top:1.1rem;
     width:100%;
 
 }
