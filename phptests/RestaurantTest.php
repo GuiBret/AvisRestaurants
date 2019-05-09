@@ -31,9 +31,6 @@
             $this->assertEquals($restaurant["custom"], false);
         }
 
-        public function testTraitementRestaurants() {
-            $mock_data = $this->GetMockData();
-        }
     }
 
  ?>

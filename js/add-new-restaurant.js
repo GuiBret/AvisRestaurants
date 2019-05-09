@@ -1,3 +1,17 @@
+/*
+    #container_fiche
+    ---- #fiche_restaurant
+    -------- #titre
+    -------- #form_container
+    ----------------- #div_img
+    ----------------- #info_container
+    ---------------------- #div_nom
+    ---------------------- #div_adresse
+    -------- #boutons
+
+*/
+
+
 function generateRestaurantForm(new_restaurant_coords) {
     let $restaurant_form = $("<div id='fiche_restaurant'></div>"),
         $title = generateTitle(),

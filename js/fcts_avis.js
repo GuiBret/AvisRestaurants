@@ -101,6 +101,7 @@ function creerListeAvis(response) { // Fct callback de getAvisRestaurants récup
         div_avis.addClass("liste_avis");
         div_avis.css("height", "0vh");
 
+        // Pour chaque restaurant, on crée une liste d'avis
         response.reviews.forEach(function(avis) {
 
             avis.id = id;

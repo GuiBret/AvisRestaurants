@@ -7,7 +7,7 @@ function ajouterRestaurants(restaurants) { // Fonction callback de getRestaurant
         restaurants_custom = liste_restaurants.getRestaurantsCustom();
 
     $("#liste_restaurants").html("");
-    
+
     var bounds = carte.getBounds();
 
     restaurants.forEach(function(iter_restaurant) {
@@ -110,17 +110,3 @@ function handleNewRestaurantAddress(response) {
 
     $("#adresse_nv_restaurant").val(adresse);
 }
-
-
-/*
-    #container_fiche
-    ---- #fiche_restaurant
-    -------- #titre
-    -------- #form_container
-    ----------------- #div_img
-    ----------------- #info_container
-    ---------------------- #div_nom
-    ---------------------- #div_adresse
-    -------- #boutons
-
-*/

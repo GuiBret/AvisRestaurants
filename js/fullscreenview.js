@@ -115,9 +115,8 @@ function restaurantsOn(e) { // Callback de l'animation affichant la liste des re
 
     $("#afficher-restaurants-fullscreen").html("");
 
-    //$("#right-part").toggleClass("classe-animation-fullscreen");
     $("#right-part").bind("onanimationend animationend webkitAnimationEnd", panelAffiche);
-    //$("#right-part").bind("ontransitionend transitionend webkitTransitionEnd", rechercheVilleFullScreen);
+
     $("#right-part").animate({"height": `${$(document.body).height()}px`}, 500, rechercheVilleFullScreen);
 
 }
@@ -141,10 +140,6 @@ function panelAffiche(data) { // Callback de rechercheVilleFullScreen, affiche l
         $("#afficher-restaurants-fullscreen").show();
 
     }
-
-
-
-
 }
 
 function restaurantsOff(e) { // Callback de btn-retour.click, fermant le panneau de la liste des restaurants
