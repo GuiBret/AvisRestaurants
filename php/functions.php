@@ -36,10 +36,10 @@ function getAPIKey() {
 function traitementRestaurants($data) {
     $restaurants = [];
 
-    foreach($data as $element) {
-        array_push($restaurants, traitementRestaurant($element));
 
-    }
+    $restaurants = array_map("traitementRestaurant", $data);
+
+
     echo json_encode($restaurants);
 
 }

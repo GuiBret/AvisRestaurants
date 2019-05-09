@@ -1,5 +1,5 @@
 <?php
-
+header("Content-Type: application/json");
 include "functions.php";
 
 session_start();
@@ -11,7 +11,7 @@ try {
     $apikey = getAPIKey();
 
 
-    header("Content-Type: application/json");
+
 
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
     "Authorization:". "Bearer ". $apikey));
