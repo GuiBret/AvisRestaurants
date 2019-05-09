@@ -30,7 +30,7 @@ $(document).ready(function () {
 
 });
 
-const ORIGIN = (window.location.hostname === "localhost") ? "" : "/p/AvisRestaurants/";
+
 
 var carte,
     liste_restaurants = new ListeRestaurants(),
@@ -43,6 +43,7 @@ var carte,
     conf = new Configuration(),
     localizer = new Localization(conf.lang);
 
+const ORIGIN = (conf.mode === "LOCAL" || conf.mode === "VPS" ) ? "" : "/p/AvisRestaurants/";
 
 $(".filtre_min").on("click", appliquerNote);
 $(".filtre_max").on("click", appliquerNote);
