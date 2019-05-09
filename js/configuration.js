@@ -1,8 +1,18 @@
 class Configuration {
     constructor() {
         //this.lang = document.URL.match(/http(?:s?):\/\/.*\.com\/?(.*)\/mes-projets\/avisrest/)[1];
+        let hostname = new URL(window.location.href).hostname;
+        switch(hostname) {
+            case "localhost":
+                this.mode = "LOCAL"
+            break;
+            case "vps496160.ovh.net":
+                this.mode = "VPS"
+            break;
+            default:
+                this.mode = "SYMFONY";
+        }
 
-        this.mode = (new URL(window.location.href).hostname === "localhost") ? "LOCAL" : "SYMFONY"
         this.lang = this.parseURL();
         this.isMobile = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
 
@@ -19,6 +29,6 @@ class Configuration {
     parseURL() {
         let url = new URL(window.location.href);
 
-        return (this.mode === "LOCAL") ? "fr" : url.pathname.split("/")[1];
+        return (this.mode === "LOCAL" || this.mode === "SYMFONY") ? "fr" : url.pathname.split("/")[1];
     }
 }
