@@ -40,7 +40,7 @@ function rechercherGeolocInversee(position, callback) { // Renvoie une ville à 
 }
 
 function getJSON(lang, localizer) {
-    let path = (conf.mode === "LOCAL") ? `trans/${lang}.json` : `/p/AvisRestaurants/trans/${lang}.json`;
+    let path = (conf.mode === "LOCAL" | conf.mode === "VPS") ? `trans/${lang}.json` : `/p/AvisRestaurants/trans/${lang}.json`;
     $.ajax({
         method: "GET",
         url: path,
