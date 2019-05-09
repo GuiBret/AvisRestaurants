@@ -29,6 +29,6 @@ class Configuration {
     parseURL() {
         let url = new URL(window.location.href);
 
-        return (this.mode === "LOCAL" || this.mode === "SYMFONY") ? "fr" : url.pathname.split("/")[1];
+        return (this.mode === "LOCAL" || this.mode === "VPS") ? "fr" : url.pathname.split("/")[1];
     }
 }
