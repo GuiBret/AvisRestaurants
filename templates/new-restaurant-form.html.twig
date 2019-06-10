@@ -1,0 +1,79 @@
+<div id='container_fiche'>
+
+    <div id='fiche_restaurant'>
+
+        <h3 class='text-center' id='add-new-restaurant-title'>Ajout d'un nouveau restaurant</h3>
+
+        <div id="form_container">
+            <input type="hidden" name='lat' value="{{lat}}" />
+            <input type="hidden" name='lng' value="{{lng}}" />
+            <div class="row">
+                <div id='div_image' class='col-4'>
+                    <img id='image_nv_restaurant' src='http://maps.googleapis.com/maps/api/streetview?size=225x225&location={{lat}},{{lng}}&key=AIzaSyBZL6hoTD5XKj49lE-88DCaW4WVpenW2d0' />
+                </div>
+                <div class='col-8'>
+                    <div id='div_nom' class='d-flex flex-column form-group'>
+                        <label for='nom_nv_restaurant'>Nom du restaurant : </label>
+                        <input type='text' id='nom_nv_restaurant' class='form-control'/>
+                    </div>
+                    <div class="form-group"><label for='adresse_nv_restaurant'>Adresse du restaurant : </label>
+                        <textarea id='adresse_nv_restaurant' readonly cols='35' rows='3' class='form-control'>{{address}}</textarea>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class='d-flex flex-row justify-content-around' id='add-restaurant-btns'>
+                <button class='btn' onclick='ajouterRestaurantCustom(event)'>Valider</button>
+                <button class='btn' onclick="fermerPopup(event)">Annuler</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script>
+        function fermerPopup(e) {
+
+            // e.preventDefault();
+            sortieFicheRestaurant();
+        }
+
+        function ajouterRestaurantCustom(e) {
+
+            e.preventDefault();
+
+            var adresse = $("#adresse_nv_restaurant").val().split(","),
+                codepostal_ville = adresse[1].trim().split(" ");
+
+
+            
+            let infosRestaurant = {
+                "nom":$("#nom_nv_restaurant").val(),
+                "id":genererIdRestaurant($("#nom_nv_restaurant").val()),
+                "image":$("#image_nv_restaurant").attr("src"),
+                "adresse":adresse[0],
+                "code_postal":codepostal_ville[0],
+                "ville":codepostal_ville[1],
+                "rating": 0,
+                "review_count":0,
+                "latitude": parseInt(document.querySelector("input[name='lat']").value),
+                "longitude": parseInt(document.querySelector("input[name='lng']").value),
+                custom:true
+            },
+                restaurant;
+
+
+            restaurant = new Restaurant(infosRestaurant);
+
+            liste_restaurants.ajouterRestaurant(restaurant);
+
+            restaurant.genFicheRestaurant();
+
+
+            sortieFicheRestaurant();
+
+
+        }
+    </script>
+</div>

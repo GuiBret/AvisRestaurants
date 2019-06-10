@@ -90,18 +90,11 @@ function genFicheNouveauRestaurant(event) { // L'image et l'adresse seront reche
 
     $("body").children(":not(#fiche_restaurant)").fadeTo("slow", 0.1);
 
-    let $fiche = $("<div id='container_fiche'></div>"),
-        new_restaurant_coords = event.latLng,
-        $formulaire = generateRestaurantForm(new_restaurant_coords),
-        $buttons_div = generateButtonsDiv(new_restaurant_coords);
+    $.get("php/interface/generate-restaurant-form.php?lat=" + event.latLng.lat() + "&lng=" + event.latLng.lng(), function(response) {
 
-    getNewRestaurantAddress(new_restaurant_coords, handleNewRestaurantAddress); // In ajax.js, searches the address of the restaurant we've clicked using Geocode
+        $("body").append(response);
+    })
 
-
-    $formulaire.append($buttons_div);
-    $fiche.append($formulaire);
-
-    $("body").append($fiche);
 
 }
 
