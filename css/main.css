@@ -162,25 +162,28 @@ span.date-avis {
     background-color:rgb(255,40,40);
     border-radius:5px 5px;
     padding:5px;
-    text-decoration:none;
+
+    transition: transform 0.1s;
 }
 
 .ouvrir-avis {
     font-weight:bold;
 }
 
-.ouvrir-avis:hover, .voir-suite-avis:hover {
-    cursor:pointer;
-    background-color:red;
-    color:white;
-}
-
-
 .voir-suite-avis {
     color:white;
     font-weight:lighter;
+    text-decoration: none;
 }
 
+.ouvrir-avis:hover, .voir-suite-avis:hover {
+    cursor:pointer;
+    background-color:red;
+    font-weight:bold;
+    text-decoration: none;
+    transform:scale(1.1);
+    color:white;
+}
 
 
 
