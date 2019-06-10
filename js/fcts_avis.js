@@ -85,8 +85,13 @@ function creerAvis(avis_util, custom) {
     return elem_avis;
 
 }
-
-function creerListeAvis(response) { // Fct callback de getAvisRestaurants récupérant les avis sur un restaurant donné et les affichant sous la fiche de celui-ci, args : id sélectionné
+/**
+ * Fct callback de getAvisRestaurants récupérant les avis sur un restaurant donné et les affichant sous la fiche de celui-ci,
+ * args : id sélectionné
+ * @param  array  response [description]
+ * @return {Boolean}          [description]
+ */
+function creerListeAvis(response) { //
     'use strict';
     if(response.code === "BUSINESS_UNAVAILABLE") {
     } else {
@@ -109,6 +114,8 @@ function creerListeAvis(response) { // Fct callback de getAvisRestaurants récup
             div_avis.append(elem_avis);
         });
 
+
+
         liste_avis_custom.forEach(function(avis) {
             elem_avis = creerAvis(avis, true);
             div_avis.append(elem_avis);
@@ -117,17 +124,23 @@ function creerListeAvis(response) { // Fct callback de getAvisRestaurants récup
 
         elem_selectionne.append(div_avis);
 
-        div_avis.append(genererFormulaireNouvelAvis(id));
-        div_avis.append(fermerAvis);
+        $.get("php/interface/generate-review-form.php?id=" + id, function(response) {
 
 
-        fermerAvis.on("click", function(e) {
-            e.stopPropagation();
-            $(this).parent().animate({"height":"0vh"}, 1000, function() {
-                $(this).css("display", "none");
-            }); // On ferme la liste correspondante
+            div_avis.append(response);
+            div_avis.append(fermerAvis);
+
+
+            fermerAvis.on("click", function(e) {
+                e.stopPropagation();
+                $(this).parent().animate({"height":"0vh"}, 1000, function() {
+                    $(this).css("display", "none");
+                }); // On ferme la liste correspondante
+
+            });
 
         });
+
 
 
 

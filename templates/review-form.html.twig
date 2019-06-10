@@ -1,0 +1,58 @@
+<div class='avis'>
+    <form class='form-group form-nv-avis'>
+        <span class='note avis_note' onclick='noteAvis(event)'>0</span>
+        <input type='text' placeholder='Entrez votre nom' class='nom-util form-control' />
+        <textarea placeholder='Entrez votre avis' class='txt-avis form-control' rows='10'></textarea><br />
+        <button id='btn-valider-avis_{{review_id}}' class="btn btn-primary btn-valider-avis" disabled >Ajouter votre avis</button>
+    </form>
+
+
+
+
+    <script>
+
+        $('.avis_note').genElemNote();
+
+
+        $('.txt-avis').on('input', function(e) {
+
+            if($(e.target).val() === "") {
+                $btn_ajoutavis.prop("disabled", true);
+            } else {
+                $btn_ajoutavis.prop("disabled", false);
+            }
+
+
+        })
+        $('.btn-valider-avis_{{review_id}}').on("click", function(e) { // On ajoute l'avis dans la liste d'avis custom et celle des restaurants affichée
+            e.preventDefault();
+            var nom_avis = $nom_avis.val(),
+                txt_avis = $txt_avis.val(),
+                note = parseInt($(".avis_note span:first-child").css("width").slice(0, -2)) / 16;
+
+            $nom_avis.val("");
+            $txt_avis.val("");
+
+            var avis = avis_custom.ajouterAvis(nom_avis, note, txt_avis, id);
+
+            var elem_avis = creerAvis(avis, true);
+            form_nvavis.before(elem_avis); // on ajoute l'avis à la fin de la liste
+            elem_avis.find("span.note").genElemNote();
+
+
+            var restaurant = liste_restaurants.rechercherRestaurant(id);
+
+
+            var elem_nb_avis = $(`span#btnavis_${id}`),
+                elem_note = $(`span#note-moyenne_${id}`),
+                nb_avis_actuel = parseInt(elem_nb_avis.html().slice(0, -5)),
+                note_moyenne = recalculerMoyenne(avis_custom.rechercherAvisDeResto(restaurant.info.id), restaurant.info.rating, restaurant.info.review_count);
+
+            elem_nb_avis.html(String(nb_avis_actuel + 1)+" "+ localizer.trans("AVIS"));
+
+
+
+        });
+
+
+    </script>
