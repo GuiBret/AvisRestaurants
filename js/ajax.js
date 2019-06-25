@@ -28,7 +28,8 @@ function get(url, callback, callbackArgs) {
 
 
 function rechercherLocalisation(position, callback) { // Fonction recherchant une adresse avec Geocode quand c'est nécessaire (procédure secondaire au début, ajout restaurant custom)
-    $.get(`php/utils/get-localization.php?position=${position}`, function(data) {
+
+    $.getJSON(`php/utils/get-localization.php?position=${position}`, function(data) {
         callback(data);
     });
 }
