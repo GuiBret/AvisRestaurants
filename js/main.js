@@ -98,15 +98,14 @@ function gestionErreur(error) { // Callback pointant vers la fct suivante
 
     rechercherLocalisation(position, rechercherVille);
 
-    //get(`https://maps.googleapis.com/maps/api/geocode/json?address=${position}&key=AIzaSyBZL6hoTD5XKj49lE-88DCaW4WVpenW2d0`, rechercherVille, [], "");
 
 }
 
 function rechercherVille(response) { // Callback de gestionErreur récupérant les données envoyées par Geocode
-    if(response.status === "ZERO_RESULTS") {
+    if(response.status === "KO") {
         gestionErreur();
     } else {
-        var resultat = response.results[0].geometry.location;
+        var resultat = {lat:response.lat, lng:response.lng};
 
         carte = new google.maps.Map(document.getElementById("carte"), {
                         center: resultat,

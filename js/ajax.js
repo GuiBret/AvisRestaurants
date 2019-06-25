@@ -28,7 +28,7 @@ function get(url, callback, callbackArgs) {
 
 
 function rechercherLocalisation(position, callback) { // Fonction recherchant une adresse avec Geocode quand c'est nécessaire (procédure secondaire au début, ajout restaurant custom)
-    $.post(`https://maps.googleapis.com/maps/api/geocode/json?address=${position}&key=AIzaSyBZL6hoTD5XKj49lE-88DCaW4WVpenW2d0`, function(data) {
+    $.get(`php/utils/get-localization?position=${position}`, function(data) {
         callback(data);
     });
 }
