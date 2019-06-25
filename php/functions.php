@@ -1,5 +1,6 @@
 <?php
 
+
 function generateGetRestaurantsURL() {
     $url = "https://api.yelp.com/v3/businesses/search?latitude={$_GET["lat"]}&longitude={$_GET["lng"]}&categories=hotels,restaurants";
 
@@ -59,6 +60,20 @@ function traitementRestaurant($restaurantAAjouter) {
 
     return $restaurant;
 
+}
+
+function getMapsAPIKey() {
+
+    if(isset($_SESSION['maps_APIKEY'])) {
+        $apikey = $_SESSION['maps_APIKEY'];
+    } else {
+
+        $maps_apikey_file = fopen($_SERVER['DOCUMENT_ROOT'] . 'AvisRestaurants/php/maps-api.key', 'r') or die ("Unable to read file ! ");
+        $apikey = fread($maps_apikey_file, filesize('../maps-api.key'));
+        fclose($maps_apikey_file);
+    }
+
+    return urlencode($apikey);
 }
 
 
