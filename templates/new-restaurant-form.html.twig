@@ -9,7 +9,7 @@
             <input type="hidden" name='lng' value="{{lng}}" />
             <div class="row">
                 <div id='div_image' class='col-4'>
-                    <img id='image_nv_restaurant' src='http://maps.googleapis.com/maps/api/streetview?size=225x225&location={{lat}},{{lng}}&key=AIzaSyBZL6hoTD5XKj49lE-88DCaW4WVpenW2d0' />
+                    <img id='image_nv_restaurant' src='http://maps.googleapis.com/maps/api/streetview?size=225x225&location={{lat}},{{lng}}&key={{maps_apikey}}' />
                 </div>
                 <div class='col-8'>
                     <div id='div_nom' class='d-flex flex-column form-group'>
@@ -47,7 +47,7 @@
                 codepostal_ville = adresse[1].trim().split(" ");
 
 
-            
+
             let infosRestaurant = {
                 "nom":$("#nom_nv_restaurant").val(),
                 "id":genererIdRestaurant($("#nom_nv_restaurant").val()),
